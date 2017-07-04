@@ -8,5 +8,8 @@
             "loose": true, // avoids crazy edge cases stuff in es6 and further
             "modules": false // delegate module handling to webpack
         }]
+    ],
+    "plugins": [
+        "babel-plugin-transform-class-properties"
     ]
 }

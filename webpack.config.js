@@ -9,7 +9,8 @@ module.exports = {
         filename: 'bundle.js'
     },
     devServer: {
-        publicPath: '/public/'
+        publicPath: '/public/',
+        historyApiFallback: true // tells your dev server if not recognices something let handle to the client
     },
     resolve: {
         extensions: ['.js', '.jsx', '.json']
