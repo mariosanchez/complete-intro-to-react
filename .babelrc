@@ -1,15 +1,23 @@
 {
-    "presets": [
-        "react", // for jsx transpilation
-        ["env",{ // this is like a prefixer for javascript, it handles the 'es' version needed 
-            "targets": {
-                "browsers": "last 2 versions"
-            },
-            "loose": true, // avoids crazy edge cases stuff in es6 and further
-            "modules": false // delegate module handling to webpack
-        }]
-    ],
-    "plugins": [
-        "babel-plugin-transform-class-properties"
+  "presets": [
+    "react", // for jsx transpilation
+    [
+      "env",
+      {
+        // this is like a prefixer for javascript, it handles the 'es' version needed
+        "targets": {
+          "browsers": "last 2 versions"
+        },
+        "loose": true, // avoids crazy edge cases stuff in es6 and further
+        "modules": false // delegate module handling to webpack
+      }
     ]
+  ],
+  "plugins": ["react-hot-loader/babel", "babel-plugin-transform-class-properties"],
+  /* This is to allow node to understand es6 modules for jest test */
+  "env": {
+    "test": {
+      "plugins": ["babel-plugin-transform-es2015-modules-commonjs"]
+    }
+  }
 }

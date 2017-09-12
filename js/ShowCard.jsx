@@ -1,6 +1,6 @@
-import React from "react";
-import { string } from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import { string } from 'prop-types';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   width: 32%;
@@ -20,10 +20,7 @@ const Image = styled.img`
 // Now we have a deterministic idempotent component, givin the same properties it always shows the same
 const ShowCard = props => (
   <Wrapper>
-    <Image
-      alt={`${props.title} Show Poster`}
-      src={`/public/img/posters/${props.poster}`}
-    />
+    <Image alt={`${props.title} Show Poster`} src={`/public/img/posters/${props.poster}`} />
     <div>
       <h3>{props.title}</h3>
       <h4>({props.year})</h4>
@@ -36,7 +33,7 @@ ShowCard.propTypes = {
   poster: string.isRequired,
   title: string.isRequired,
   year: string.isRequired,
-  description: string.isRequired
+  description: string.isRequired,
 };
 
 export default ShowCard;
