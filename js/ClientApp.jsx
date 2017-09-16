@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'; // We need import React everywhere we use jsx
 import { render } from 'react-dom';
 import App from './App';

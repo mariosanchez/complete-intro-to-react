@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import preload from '../data.json';
 import ShowCard from './ShowCard';
@@ -10,7 +12,7 @@ class Search extends Component {
   };
 
   // Arrow functions doesn't create new context, they use their upper context, otherwise we need to bind it
-  handleSearchTerChange = event => {
+  handleSearchTerChange = (event: SyntheticKeyboardEvent & { target: HTMLInputElement }) => {
     this.setState({ searchTerm: event.target.value }); // We do it like this to able React to notice changes
   };
 

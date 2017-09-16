@@ -1,3 +1,6 @@
-// Coloque su configuración en este archivo para sobrescribir la configuración predeterminada y de usuario.
 {
+  // Coloque su configuración en este archivo para sobrescribir la configuración predeterminada y de usuario.
+  "javascript.validate.enable": false,
+  "typescript.validate.enable": false,
+  "flow.pathToFlow": "/home/mario/Projects/complete-intro-to-react/node_modules/.bin/flow"
 }
