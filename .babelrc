@@ -1,6 +1,6 @@
 {
   "presets": [
-    "react", // for jsx transpilation
+    "react", // for jsx transpilation | it also removes flow annotations
     [
       "env",
       {
