@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import ShowCard from './ShowCard';
+import Header from './Header';
 
 class Search extends Component {
   // It uses class properties babel plugin to suport this kind of declarations,
@@ -22,10 +23,7 @@ class Search extends Component {
   render() {
     return (
       <div className="search">
-        <header>
-          <h1>svideo</h1>
-          <input onChange={this.handleSearchTerChange} value={this.state.searchTerm} type="text" placeholder="Search" />
-        </header>
+        <Header searchTerm={this.state.searchTerm} showSearch handleSearchTerChange={this.handleSearchTerChange} />
         <div>
           {this.props.shows
             .filter(
