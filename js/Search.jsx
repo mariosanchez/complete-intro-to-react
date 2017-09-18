@@ -1,7 +1,6 @@
 // @flow
 
 import React, { Component } from 'react';
-import preload from '../data.json';
 import ShowCard from './ShowCard';
 
 class Search extends Component {
@@ -9,6 +8,10 @@ class Search extends Component {
   // we avoid the constructor boilerplate
   state = {
     searchTerm: '',
+  };
+
+  props: {
+    shows: Array<Show>,
   };
 
   // Arrow functions doesn't create new context, they use their upper context, otherwise we need to bind it
@@ -24,7 +27,7 @@ class Search extends Component {
           <input onChange={this.handleSearchTerChange} value={this.state.searchTerm} type="text" placeholder="Search" />
         </header>
         <div>
-          {preload.shows
+          {this.props.shows
             .filter(
               show =>
                 `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0,
