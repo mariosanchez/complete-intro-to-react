@@ -1,9 +1,11 @@
 // @flow
 
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setSearchTerm } from './actionCreators';
 
-const Header = (props: { showSearch?: boolean, handleSearchTerChange?: Function, searchTerm?: string }) => {
+const Header = (props: { showSearch?: boolean, handleSearchTerChange: Function, searchTerm: string }) => {
   let utilSpace;
   if (props.showSearch) {
     utilSpace = (
@@ -29,6 +31,13 @@ const Header = (props: { showSearch?: boolean, handleSearchTerChange?: Function,
   );
 };
 
-Header.defaultProps = { showSearch: false, handleSearchTerChange: function noop() {}, searchTerm: '' };
+Header.defaultProps = { showSearch: false};
 
-export default Header;
+const mapStateToProps = state => ({searchTerm: state.searchTerm})
+const mapDispatchToProps = (dispatch: Function) => ({
+  handleSearchTerChange(event) {
+    dispatch(setSearchTerm(event.target.value));
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
