@@ -4,9 +4,7 @@ const webpack = require('webpack');
 module.exports = {
   context: __dirname, // it says we are runing webpack in the root directory always
   entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
+    'webpack-hot-middleware/client?path=__webpack_hmr&timeout=2000',
     './js/ClientApp.jsx', // frontdoor to our project
   ],
   devtool: 'cheap-eval-source-map', // it says to inline all my sourcemaps in dev version

@@ -14,9 +14,13 @@
     ]
   ],
   "plugins": ["react-hot-loader/babel", "babel-plugin-transform-class-properties"],
-  /* This is to allow node to understand es6 modules for jest test */
   "env": {
+    /* This is to allow node to understand es6 modules for jest test */
     "test": {
+      "plugins": ["babel-plugin-transform-es2015-modules-commonjs"]
+    },
+    /* This is to allow node to understand es6 modules for Node.js */
+    "server": {
       "plugins": ["babel-plugin-transform-es2015-modules-commonjs"]
     }
   }
