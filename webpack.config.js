@@ -24,6 +24,10 @@ const config = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
+    alias: {
+      react: 'preact-compat', // This is for use preact instead of React
+      'react-dom': 'preact-compat', // This is for use preact instead of React
+    },
   },
   stats: {
     // report format and info
@@ -47,6 +51,8 @@ const config = {
       {
         test: /\.jsx?$/, // function or regex
         loader: 'babel-loader',
+        // This is for use preact instead of React
+        include: [path.resolve('js'), path.resolve('node-modules/preact-compat/src')],
       },
     ],
   },
