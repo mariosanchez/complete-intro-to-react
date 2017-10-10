@@ -1,10 +1,14 @@
 const path = require('path'); // module that resolves relative paths for us
 const webpack = require('webpack');
 
-module.exports = {
+const config = {
   context: __dirname, // it says we are runing webpack in the root directory always
   entry: [
-    'webpack-hot-middleware/client?path=__webpack_hmr&timeout=2000',
+    // Dev server HRM entries
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://loacalhost:8080',
+    // Universal HMR entry
+    // 'webpack-hot-middleware/client?path=__webpack_hmr&timeout=2000',
     './js/ClientApp.jsx', // frontdoor to our project
   ],
   devtool: 'cheap-eval-source-map', // it says to inline all my sourcemaps in dev version
@@ -47,3 +51,11 @@ module.exports = {
     ],
   },
 };
+
+if (process.env.NODE_ENV === 'prod') {
+  config.entry = './js/ClientApp.jsx';
+  config.devtool = false;
+  config.plugins = [];
+}
+
+module.exports = config;

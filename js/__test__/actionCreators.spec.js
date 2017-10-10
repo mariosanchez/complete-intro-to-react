@@ -1,6 +1,7 @@
 // @flow
 import moxios from 'moxios';
-import { setSearchTerm, addAPIData, getAPIData } from '../actionCreators';
+import { setSearchTerm, addAPIData } from '../actionCreators';
+import getAPIData from '../asyncActions';
 
 const show = {
   title: 'Silicon Valley',

@@ -1,7 +1,8 @@
 {
   "scripts": {
     "api": "node ratingsAPI.js",
-    "build": "webpack",
+    "build": "NODE_ENV=prod webpack -p",
+    "build:dev": "NODE_ENV=dev webpack -d",
     "dev": "webpack-dev-server",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"js/**/*.{js,jsx}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
@@ -9,7 +10,8 @@
     "test:coverage": "jest --coverage",
     "test:update": "jest -u",
     "watch": "webpack --watch",
-    "node:dev": "NODE_ENV=server nodemon server.js"
+    "node:dev": "NODE_ENV=server nodemon server.js",
+    "node:start": "NODE_ENV=server node server.js"
   },
   "jest": {
     "snapshotSerializers": ["jest-serializer-enzyme"]

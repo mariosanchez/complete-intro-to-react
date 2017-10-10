@@ -13,7 +13,12 @@
       }
     ]
   ],
-  "plugins": ["react-hot-loader/babel", "babel-plugin-transform-class-properties"],
+  "plugins": [
+    "react-hot-loader/babel",
+    "babel-plugin-syntax-dynamic-import", // Lets babel undesrtands dynamic import syntax
+    "babel-plugin-dynamic-import-webpack", // Translate imports into require.ensure
+    "babel-plugin-transform-class-properties"
+  ],
   "env": {
     /* This is to allow node to understand es6 modules for jest test */
     "test": {

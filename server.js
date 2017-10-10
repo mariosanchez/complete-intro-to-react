@@ -7,11 +7,14 @@ const ReactDOMServer = require('react-dom/server');
 const ReactRouter = require('react-router-dom');
 const lodash = require('lodash');
 const fs = require('fs');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpack = require('webpack');
+// HMR for universal rendering
+// const webpackDevMiddleware = require('webpack-dev-middleware');
+// const webpackHotMiddleware = require('webpack-hot-middleware');
+// const webpack = require('webpack');
+const compression = require('compression');
 const App = require('./js/App').default;
-const config = require('./webpack.config');
+// HMR for universal rendering
+// const config = require('./webpack.config');
 
 const StaticRouter = ReactRouter.StaticRouter;
 const port = 8080;
@@ -21,12 +24,16 @@ const template = lodash.template(baseTemplate);
 
 const server = express();
 
+// Universal HMR compiler
+/*
 const compiler = webpack(config);
 server.use(
     webpackDevMiddleware(compiler, { publicPath: config.output.publicPath})
 );
 server.use(webpackHotMiddleware(compiler));
+*/
 
+server.use(compression());
 server.use('/public', express.static('./public'));
 
 server.use((req, res) => {
